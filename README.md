@@ -46,6 +46,3 @@ Call ftl/dsl.py function and provide a .ftl file
 ```bash
 python ftl/dsl.py ftl/samples/test.ftl
 ```
-
-Θέλεις να σου ετοιμάσω και το `requirements.txt` (με τουλάχιστον το `textX`) για να το βάλεις μαζί στο repo;
-```
