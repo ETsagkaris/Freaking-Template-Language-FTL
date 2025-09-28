@@ -1,0 +1,1456 @@
+{
+  "refname": "VEVAIOSI-FOITISIS-DEMO",
+  "steps_spec": {
+    "steps": {
+      "personal_info": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Προσωπικά Στοιχεία",
+              "captionLeft": "Βεβαίωση Φοίτησης",
+              "serviceName": "Βεβαίωση Φοίτησης"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "personal",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "personal": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προσωπικά Στοιχεία",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "firstname surname father_name mother_name birth_date afm"
+          }
+        },
+        "fields": {
+          "firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string",
+                  "component-params": {
+                    "enforceUppercase": true
+                  }
+                }
+              }
+            }
+          },
+          "surname": {
+            "user-input-mode": "noinput",
+            "attribute": "surname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string",
+                  "component-params": {
+                    "enforceUppercase": true
+                  }
+                }
+              }
+            }
+          },
+          "father_name": {
+            "user-input-mode": "noinput",
+            "attribute": "father_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατέρα",
+                  "component": "string",
+                  "component-params": {
+                    "enforceUppercase": true
+                  }
+                }
+              }
+            }
+          },
+          "mother_name": {
+            "user-input-mode": "noinput",
+            "attribute": "mother_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string",
+                  "component-params": {
+                    "enforceUppercase": true
+                  }
+                }
+              }
+            }
+          },
+          "birth_date": {
+            "user-input-mode": "noinput",
+            "attribute": "birth_date",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "date"
+                }
+              }
+            }
+          },
+          "afm": {
+            "user-input-mode": "noinput",
+            "attribute": "afm",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Α.Φ.Μ.",
+                  "component": "afm"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "self_or_child"
+      },
+      "self_or_child": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Επιλέξτε για ποιον θέλετε να εκδώσετε την Βεβαίωση Φοίτησης",
+              "captionLeft": "Βεβαίωση Φοίτησης",
+              "serviceName": "Βεβαίωση Φοίτησης"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "option_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "option_fs": {
+            "field-order": "option",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "option": {
+            "user-input-mode": "required",
+            "datatype": "radio-choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επιλογή",
+                  "component": "radio-choice",
+                  "choices": {
+                    "self": "Για εμένα",
+                    "child": "Για το παιδί μου"
+                  },
+                  "choices-order": "self child"
+                }
+              }
+            }
+          }
+        },
+        "decide_next_step": "dilosi.interop_logic.common.get_self_or_child_next_step",
+        "possible_next_steps": {
+          "more_personal_info": {
+            "documentation": {
+              "label": "more_personal_info"
+            }
+          },
+          "choose_child": {
+            "documentation": {
+              "label": "choose_child"
+            }
+          }
+        }
+      },
+      "more_personal_info": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία Μαθητή",
+              "captionLeft": "Βεβαίωση Φοίτησης",
+              "serviceName": "Βεβαίωση Φοίτησης"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "student_input",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "student_input": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Μαθητή",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "input_firstname input_surname input_father_name input_mother_name input_birth_date input_gender"
+          }
+        },
+        "fields": {
+          "input_firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "student_first_second_name:firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "input_surname": {
+            "user-input-mode": "noinput",
+            "attribute": "surname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "input_father_name": {
+            "user-input-mode": "noinput",
+            "attribute": "father_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "input_mother_name": {
+            "user-input-mode": "noinput",
+            "attribute": "mother_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "input_birth_date": {
+            "user-input-mode": "noinput",
+            "attribute": "birth_date",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία γέννησης",
+                  "component": "three-block-date"
+                }
+              }
+            }
+          },
+          "input_gender": {
+            "user-input-mode": "required",
+            "datatype": "radio-choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Φύλο",
+                  "component": "radio-choice",
+                  "choices": {
+                    "Α": "Άρρεν",
+                    "Θ": "Θήλυ"
+                  },
+                  "choices-order": "Α Θ"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "preview"
+      },
+      "choose_child": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Επιλέξτε παιδί",
+              "captionLeft": "Βεβαίωση Φοίτησης",
+              "serviceName": "Βεβαίωση Φοίτησης"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "choose_child_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "choose_child_fs": {
+            "field-order": "children child_choice",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "children": {
+            "user-input-mode": "noinput",
+            "attribute": "children_list",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "child_choice": {
+            "user-input-mode": "required",
+            "datatype": "radio-choice",
+            "choices-source-fn": "dilosi.interop_logic.common.get_child_choices",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επιλέξτε",
+                  "component": "radio-choice"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "child_info"
+      },
+      "child_info": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία Μαθητή",
+              "captionLeft": "Βεβαίωση Φοίτησης",
+              "serviceName": "Βεβαίωση Φοίτησης"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "student_input",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "student_input": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Μαθητή",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "input_firstname input_surname input_father_name input_mother_name input_birth_date input_gender"
+          }
+        },
+        "fields": {
+          "input_firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "student_first_second_name:firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "input_surname": {
+            "user-input-mode": "noinput",
+            "attribute": "child_choice_info:lastname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "input_father_name": {
+            "user-input-mode": "noinput",
+            "attribute": "child_choice_info:fathername",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "input_mother_name": {
+            "user-input-mode": "noinput",
+            "attribute": "child_choice_info:mothername",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "input_birth_date": {
+            "user-input-mode": "noinput",
+            "attribute": "child_choice_info:birthdate",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία γέννησης",
+                  "component": "three-block-date"
+                }
+              }
+            }
+          },
+          "input_gender": {
+            "user-input-mode": "required",
+            "datatype": "radio-choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Φύλο",
+                  "component": "radio-choice",
+                  "choices": {
+                    "Α": "Άρρεν",
+                    "Θ": "Θήλυ"
+                  },
+                  "choices-order": "Α Θ"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "preview"
+      },
+      "preview": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Προεπισκόπηση",
+              "captionLeft": "Βεβαίωση Φοίτησης",
+              "serviceName": "Βεβαίωση Φοίτησης"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "student_info school_info",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Έκδοση",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "issue": true,
+              "ensure-no-input": true
+            }
+          }
+        },
+        "fieldsets": {
+          "student_info": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Μαθητή",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "student_firstName student_lastName student_fatherFirstName student_motherFirstname"
+          },
+          "school_info": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Σχολείου",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "school_unitName school_didacticYear school_levelName student_AM school_precinctName school_divisionName school_unitAddress school_unitTelephone school_unitEmail"
+          }
+        },
+        "fields": {
+          "student_firstName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:firstName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "student_lastName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:lastName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "student_fatherFirstName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:fatherFirstName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Πατρώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "student_motherFirstname": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:motherFirstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Μητρώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_unitName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:unitName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Σχολείου Φοίτησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_didacticYear": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:didacticYear",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Σχολικό έτος",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_levelName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:levelName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τάξη Εγγραφής στο τρέχον σχολικό έτος",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "student_AM": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:registrationNumber",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Μητρώου (ΑΜ) του μαθητή στο σχολείο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_precinctName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:precinctName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Περιφερειακή  Διεύθυνση Εκπαίδευσης όπου υπάγεται το σχολείο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_divisionName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:divisionName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Διεύθυνση Εκπαίδευσης όπου υπάγεται το σχολείο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_unitAddress": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:unitAddress",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ταχ. Δ/νση Σχολείου",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_unitTelephone": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:unitTelephone",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τηλέφωνο Σχολείου",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_unitEmail": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:unitEmail",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "E-mail Σχολείου",
+                  "component": "string"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "final_view"
+      },
+      "final_view": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Τελική Προβολή",
+              "captionLeft": "Βεβαίωση Φοίτησης",
+              "serviceName": "Βεβαίωση Φοίτησης"
+            }
+          }
+        },
+        "action-order": "pdf",
+        "fieldset-order": "student_info school_info pdf_header pdf_ypourgeio_fs pdf_doc_title pdf_before_student_fs pdf_student_info pdf_before_school_fs pdf_school_info pdf_before_signature_fs pdf_signature",
+        "actions": {
+          "pdf": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-download-pdf",
+                  "label": "Αποθήκευση",
+                  "icon": "picture_as_pdf",
+                  "title": "Αποθηκεύστε στο αρχείο σας",
+                  "helptext": "Αποθηκεύστε το αρχείο PDF στη συσκευή σας.",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "filename": "govgr_document.pdf"
+            }
+          }
+        },
+        "fieldsets": {
+          "student_info": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Μαθητή",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "student_firstName student_lastName student_fatherFirstName student_motherFirstname"
+          },
+          "school_info": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Σχολείου",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "school_unitName school_didacticYear school_levelName student_AM school_precinctName school_divisionName school_unitAddress school_unitTelephone school_unitEmail"
+          },
+          "pdf_header": {
+            "field-order": "emblem qrcode refcode",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "header"
+                }
+              }
+            }
+          },
+          "pdf_ypourgeio_fs": {
+            "field-order": "ypourgeio",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_doc_title": {
+            "field-order": "title",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden",
+                  "component-params": {
+                    "spaceAfter": 30
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_before_student_fs": {
+            "field-order": "before_student",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_student_info": {
+            "field-order": "student_firstName student_lastName student_fatherFirstName student_motherFirstname firstname surname",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden",
+                  "component-params": {
+                    "auto_columns": 2
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            }
+          },
+          "pdf_before_school_fs": {
+            "field-order": "before_school",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_school_info": {
+            "field-order": "school_unitName school_didacticYear school_levelName student_AM school_precinctName school_divisionName school_unitAddress school_unitTelephone school_unitEmail",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden",
+                  "component-params": {
+                    "auto_columns": 2
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            }
+          },
+          "pdf_before_signature_fs": {
+            "field-order": "before_signature",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_signature": {
+            "field-order": "sign_date signer_title signer_empty signer_name",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden",
+                  "component-params": {
+                    "spaceBefore": 20
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "signature"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "student_firstName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:firstName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "student_lastName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:lastName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "student_fatherFirstName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:fatherFirstName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Πατρώνυμο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Πατρώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "student_motherFirstname": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:motherFirstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Μητρώνυμο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Μητρώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_unitName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:unitName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Σχολείου Φοίτησης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα Σχολείου Φοίτησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_didacticYear": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:didacticYear",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Σχολικό έτος",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Σχολικό έτος",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_levelName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:levelName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τάξη Εγγραφής στο τρέχον σχολικό έτος",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Τάξη Εγγραφής στο τρέχον σχολικό έτος",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "student_AM": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:registrationNumber",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Μητρώου (ΑΜ) του μαθητή στο σχολείο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αριθμός Μητρώου (ΑΜ) του μαθητή στο σχολείο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_precinctName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:precinctName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Περιφερειακή  Διεύθυνση Εκπαίδευσης όπου υπάγεται το σχολείο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Περιφερειακή  Διεύθυνση Εκπαίδευσης όπου υπάγεται το σχολείο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_divisionName": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:divisionName",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Διεύθυνση Εκπαίδευσης όπου υπάγεται το σχολείο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Διεύθυνση Εκπαίδευσης όπου υπάγεται το σχολείο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_unitAddress": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:unitAddress",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ταχ. Δ/νση Σχολείου",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Ταχ. Δ/νση Σχολείου",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_unitTelephone": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:unitTelephone",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τηλέφωνο Σχολείου",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Τηλέφωνο Σχολείου",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "school_unitEmail": {
+            "user-input-mode": "noinput",
+            "attribute": "vevaiosi_foitisis:unitEmail",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "E-mail Σχολείου",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "E-mail Σχολείου",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "emblem": {
+            "user-input-mode": "display",
+            "value": "hellenic_coat_of_arms_el_pdf",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "pdf-image",
+                  "component-params": {
+                    "coordinates": [
+                      7.5,
+                      26.4,
+                      6,
+                      2.581
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "qrcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code declaration:validation_context",
+            "value-constructor": "dilosi.interop_logic.common.create_document_uri",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "qrcode"
+                }
+              }
+            }
+          },
+          "refcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code",
+            "value-constructor": "dilosi.interop_logic.common.from_singleton_list",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "refcode",
+                  "component-params": {
+                    "later-pages": true
+                  }
+                }
+              }
+            }
+          },
+          "ypourgeio": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Υπουργείο Παιδείας, Θρησκευμάτων και Αθλητισμού\\nΓενική Γραμματεία Πρωτοβάθμιας,\\nΔευτεροβάθμιας Εκπαίδευσης και Ειδικής Αγωγής\\nΓενική Διεύθυνση Σπουδών Πρωτοβάθμιας και\\nΔευτεροβάθμιας Εκπαίδευσης",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "string",
+                  "component-params": {
+                    "format": "plaintext"
+                  }
+                }
+              }
+            }
+          },
+          "title": {
+            "user-input-mode": "noinput",
+            "value": "ΒΕΒΑΙΩΣΗ ΦΟΙΤΗΣΗΣ",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "doc_title"
+                }
+              }
+            }
+          },
+          "before_student": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Βεβαιώνεται ότι ο/η μαθητής/τρια:",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "firstname",
+            "datatype": "string",
+            "display": {
+              "pdf": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "hidden",
+                  "component-params": {
+                    "enforceUppercase": true
+                  }
+                }
+              }
+            }
+          },
+          "surname": {
+            "user-input-mode": "noinput",
+            "attribute": "surname",
+            "datatype": "string",
+            "display": {
+              "pdf": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "hidden",
+                  "component-params": {
+                    "enforceUppercase": true
+                  }
+                }
+              }
+            }
+          },
+          "before_school": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "sources": "field:school_didacticYear",
+            "value-constructor": "dilosi.applications.vevaiosi_foitisis.claims.common.text_with_current_school_year",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "before_signature": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Η Βεβαίωση αυτή χορηγείται προκειμένου να χρησιμοποιηθεί για κάθε νόμιμη χρήση.",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "sign_date": {
+            "user-input-mode": "noinput",
+            "datatype": "date",
+            "sources": "declaration:timestamp",
+            "value-constructor": "dilosi.interop_logic.common.get_local_date",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "date"
+                }
+              }
+            }
+          },
+          "signer_title": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Ο - Η Αιτ.",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "signer_empty": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "signer_name": {
+            "user-input-mode": "noinput",
+            "value": "{firstname} {surname}",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "dynamically-filled-text",
+                  "component-params": {
+                    "emph": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "steps-order": "personal_info"
+  },
+  "owner": "System",
+  "shortname": "Βεβαίωση Φοίτησης",
+  "description": "Βεβαίωση Φοίτησης",
+  "requires_case": true,
+  "is_official": true,
+  "extra_required_claims": [
+    "mobile_certified_login"
+  ],
+  "exempted_claims": [],
+  "case_prefixes": [],
+  "reply_templates": []
+}

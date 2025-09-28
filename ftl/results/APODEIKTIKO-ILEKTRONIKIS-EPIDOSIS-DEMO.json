@@ -1,0 +1,937 @@
+{
+  "refname": "APODEIKTIKO-ILEKTRONIKIS-EPIDOSIS-DEMO",
+  "steps_spec": {
+    "steps": {
+      "epidosi_input": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Κωδικός εγγράφου (που έχει επιδοθεί από τη θυρίδα ή το Π.Σ. του Δήμου)",
+              "captionLeft": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης",
+              "serviceName": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης"
+            }
+          }
+        },
+        "validator": "dilosi.applications.epidosi_eggrafou.claims.apodeiktiko_ilektronikis_epidosis_fields.validate_application",
+        "action-order": "update",
+        "fieldset-order": "epidosi_input_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "epidosi_input_fs": {
+            "field-order": "epidosi_ref_code",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "epidosi_ref_code": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός εγγράφου",
+                  "component": "string"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "view_epidosi"
+      },
+      "view_epidosi": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία επίδοσης",
+              "captionLeft": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης",
+              "serviceName": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "sender_fs citizen_info_fs application_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "sender_fs": {
+            "field-order": "sender",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "citizen_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Υπόχρεο φυσικό πρόσωπο",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "afm firstname lastname"
+          },
+          "application_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ηλεκτρονική επίδοση",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "application_title application_refcode upload_date retrieved_date retrieval_status notes"
+          }
+        },
+        "fields": {
+          "sender": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:sender",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αποστολέας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "afm": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:afm",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "ΑΦΜ",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "lastname": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:lastname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "application_title": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:application_title",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τίτλος επίδοσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "application_refcode": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:application_refcode",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός εγγράφου που επιδόθηκε",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "upload_date": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:upload_date",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία ανάρτησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "retrieved_date": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:retrieved_date",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία ανάγνωσης από τον πολίτη",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "retrieval_status": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:retrieval_status",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κατάσταση ανάγνωσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "notes": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:notes",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Παρατηρήσεις",
+                  "component": "string"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "preview"
+      },
+      "preview": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Προεπισκόπηση",
+              "captionLeft": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης",
+              "serviceName": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "sender_fs citizen_info_fs application_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Έκδοση",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "issue": true,
+              "ensure-no-input": true
+            }
+          }
+        },
+        "fieldsets": {
+          "sender_fs": {
+            "field-order": "sender",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "citizen_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Υπόχρεο φυσικό πρόσωπο",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "afm firstname lastname"
+          },
+          "application_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ηλεκτρονική επίδοση",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "application_title application_refcode upload_date retrieved_date retrieval_status notes"
+          }
+        },
+        "fields": {
+          "sender": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:sender",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αποστολέας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "afm": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:afm",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "ΑΦΜ",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "lastname": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:lastname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "application_title": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:application_title",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τίτλος επίδοσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "application_refcode": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:application_refcode",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός εγγράφου που επιδόθηκε",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "upload_date": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:upload_date",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία ανάρτησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "retrieved_date": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:retrieved_date",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία ανάγνωσης από τον πολίτη",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "retrieval_status": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:retrieval_status",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κατάσταση ανάγνωσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "notes": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:notes",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Παρατηρήσεις",
+                  "component": "string"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "final_view"
+      },
+      "final_view": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Προβολή",
+              "captionLeft": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης",
+              "serviceName": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης"
+            }
+          }
+        },
+        "action-order": "pdf",
+        "fieldset-order": "sender_fs citizen_info_fs application_fs pdf_header pdf_doc_title pdf_sender_fs pdf_citizen_info_fs pdf_application_fs",
+        "actions": {
+          "pdf": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-download-pdf",
+                  "label": "Αποθήκευση",
+                  "icon": "picture_as_pdf",
+                  "title": "Αποθηκεύστε στο αρχείο σας",
+                  "helptext": "Αποθηκεύστε το αρχείο PDF στη συσκευή σας.",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "filename": "govgr_document.pdf"
+            }
+          }
+        },
+        "fieldsets": {
+          "sender_fs": {
+            "field-order": "sender",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "citizen_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Υπόχρεο φυσικό πρόσωπο",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "afm firstname lastname"
+          },
+          "application_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ηλεκτρονική επίδοση",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "application_title application_refcode upload_date retrieved_date retrieval_status notes"
+          },
+          "pdf_header": {
+            "field-order": "emblem qrcode refcode",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "header"
+                }
+              }
+            }
+          },
+          "pdf_doc_title": {
+            "field-order": "title issue_date subtitle",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden",
+                  "component-params": {
+                    "spaceAfter": 30
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_sender_fs": {
+            "field-order": "sender",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            }
+          },
+          "pdf_citizen_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Υπόχρεο φυσικό πρόσωπο",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            },
+            "field-order": "afm firstname lastname"
+          },
+          "pdf_application_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ηλεκτρονική επίδοση",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            },
+            "field-order": "application_title application_refcode upload_date retrieved_date retrieval_status notes"
+          }
+        },
+        "fields": {
+          "sender": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:sender",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αποστολέας",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αποστολέας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "afm": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:afm",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "ΑΦΜ",
+                  "component": "afm"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "ΑΦΜ",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "lastname": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:lastname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "application_title": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:application_title",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τίτλος επίδοσης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Τίτλος επίδοσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "application_refcode": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:application_refcode",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός εγγράφου που επιδόθηκε",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Κωδικός εγγράφου που επιδόθηκε",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "upload_date": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:upload_date",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία ανάρτησης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Ημερομηνία ανάρτησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "retrieved_date": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:retrieved_date",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία ανάγνωσης από τον πολίτη",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Ημερομηνία ανάγνωσης από τον πολίτη",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "retrieval_status": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:retrieval_status",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κατάσταση ανάγνωσης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Κατάσταση ανάγνωσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "notes": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:notes",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Παρατηρήσεις",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Παρατηρήσεις",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "emblem": {
+            "user-input-mode": "display",
+            "value": "hellenic_coat_of_arms_el_pdf",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "pdf-image",
+                  "component-params": {
+                    "coordinates": [
+                      7.5,
+                      26.4,
+                      6,
+                      2.581
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "qrcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code declaration:validation_context",
+            "value-constructor": "dilosi.interop_logic.common.create_document_uri",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "qrcode"
+                }
+              }
+            }
+          },
+          "refcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code",
+            "value-constructor": "dilosi.interop_logic.common.from_singleton_list",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "refcode",
+                  "component-params": {
+                    "later-pages": true
+                  }
+                }
+              }
+            }
+          },
+          "title": {
+            "user-input-mode": "noinput",
+            "value": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "doc_title"
+                }
+              }
+            }
+          },
+          "issue_date": {
+            "user-input-mode": "noinput",
+            "attribute": "apodeiktiko_ilektronikis_epidosis_fields:issue_date",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "doc_subtitle"
+                }
+              }
+            }
+          },
+          "subtitle": {
+            "user-input-mode": "noinput",
+            "value": "Βεβαιώνεται ότι πραγματοποιήθηκε η ηλεκτρονική επίδοση με τα εξής στοιχεία:",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "doc_subtitle"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "steps-order": "epidosi_input"
+  },
+  "owner": "ΔΗΜΟΣ-ΕΠΙΔΟΣΕΙΣ",
+  "shortname": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης",
+  "description": "Αποδεικτικό έγγραφο ηλεκτρονικής επίδοσης",
+  "requires_case": false,
+  "is_official": true,
+  "action_on_issue": "dilosi.interop_logic.common.create_finished_entity_inbox",
+  "extra_required_claims": [
+    "is_admin|is_service"
+  ],
+  "exempted_claims": [
+    "mobile_certified_login",
+    "is_citizen_user",
+    "govgr_login"
+  ],
+  "case_prefixes": [],
+  "reply_templates": []
+}

@@ -1,0 +1,45 @@
+{
+  "scopeName": "source.ftl",
+  "patterns": [
+    {
+      "match": "\\b(REQUIRED|OPTIONAL|NOINPUT|DISPLAY)\\b",
+      "name": "yellow.ftl"
+    },
+    {
+      "match": "\\b(as|edit)\\b",
+      "name": "purple.ftl"
+    },
+    {
+      "match": "\\b(TEMPLATE|STEP|INTRO_STEP|COMMON_STEP_PROPS|OTP|PDF_SPEC)\\b",
+      "name": "blue.ftl"
+    },
+    {
+      "match": "\\b(FIELDSET|FORM|VIEW|TABLE|HEADER|DOC_TITLE|FOOTNOTES|SIGNATURE)\\b",
+      "name": "blue.ftl"
+    },
+    {
+      "match": "\\b(FIELD|INFO|TEXT|STRING|EMAIL|PHONE|MOBILE|AFM|DATE|HIERARCHICAL_SELECTOR|CHOICE|RADIO_CHOICE|RECIPIENT|ATTACHMENT|EMBLEM|REFCODE|TITLE|SUBTITLE|SIGN_DATE|SIGNER_TITLE|SIGNER_EMPTY|SIGNER_NAME)\\b",
+      "name": "blue.ftl"
+    },
+    {
+      "match": "\\b(UPDATE|UPDATE_FOR_SUBMISSION|PDF|REVOKE|CREATE)\\b",
+      "name": "blue.ftl"
+    },
+    {
+      "match": "\\b(True|False)\\b",
+      "name": "orange.ftl"
+    },
+    {
+      "match": "\"(?:[^\"\\\\]|\\\\.)*\"",
+      "name": "green.ftl"
+    },
+	  {
+  	  "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?==)",
+      "name": "orange.ftl"
+    },
+    {
+      "match": "-\\s+\\b[a-zA-Z_][a-zA-Z0-9_]*\\b\\s*;",
+      "name": "orange.ftl"
+    } 
+  ]
+}

@@ -1,0 +1,1553 @@
+{
+  "refname": "TEST",
+  "steps_spec": {
+    "steps": {
+      "personal": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία Δηλούντος",
+              "captionLeft": "Υπεύθυνη Δήλωση"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "info_msg_fs personal address contact",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "info_msg_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Μήνυμα Πληροφόρησης",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "info_msg"
+          },
+          "personal": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προσωπικά Στοιχεία",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "solemn_firstname solemn_surname solemn_father_fullname solemn_mother_fullname solemn_birth_date solemn_birth_place solemn_adt solemn_afm"
+          },
+          "address": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Διεύθυνση Κατοικίας",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "solemn_residence solemn_street solemn_street_number solemn_tk"
+          },
+          "contact": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Επικοινωνίας",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "solemn_tel solemn_email"
+          }
+        },
+        "fields": {
+          "info_msg": {
+            "user-input-mode": "display",
+            "value": "Οι τιμές των πεδίων της σελίδας έχουν ανακτηθεί από το Φορολογικό Μητρώο και το Εθνικό Μητρώο Επικοινωνίας (ΕΜΕπ). Στην υπηρεσία Βεβαίωση φορολογικού μητρώου μπορείτε να δείτε τα στοιχεία σας στο Φορολογικό Μητρώο, ενώ στην υπηρεσία Εθνικό Μητρώο Επικοινωνίας (ΕΜΕπ) μπορείτε να δείτε και να τροποποιήσετε τα στοιχεία επικοινωνίας σας.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "quote",
+                  "component-params": {
+                    "mode": "info"
+                  }
+                }
+              }
+            }
+          },
+          "solemn_firstname": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_surname": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_father_fullname": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_mother_fullname": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_birth_date": {
+            "user-input-mode": "required",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "date",
+                  "component-params": {
+                    "labels": {
+                      "day": "01",
+                      "month": "01",
+                      "year": "2000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "solemn_birth_place": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τόπος Γέννησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_adt": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Δελτίου Ταυτότητας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_afm": {
+            "user-input-mode": "required",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "ΑΦΜ",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "solemn_residence": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τόπος Κατοικίας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_street": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Οδός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_street_number": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_tk": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τ.Κ.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_tel": {
+            "user-input-mode": "required",
+            "datatype": "phone",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τηλέφωνο",
+                  "component": "phone"
+                }
+              }
+            }
+          },
+          "solemn_email": {
+            "user-input-mode": "required",
+            "datatype": "email",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Δ/νση Ηλεκτρ. Ταχυδρομείου (E-mail)",
+                  "component": "email"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "body"
+      },
+      "body": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Συμπληρώστε το κείμενο της δήλωσης",
+              "captionLeft": "Υπεύθυνη Δήλωση"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "body",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "body": {
+            "field-order": "introduction free_text",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "introduction": {
+            "user-input-mode": "display",
+            "datatype": "string",
+            "value": "Με ατομική μου ευθύνη και γνωρίζοντας τις κυρώσεις<sup>(2)</sup>, που προβλέπονται από τις διατάξεις της παρ. 6 του άρθρου 22 του Ν. 1599/1986, δηλώνω ότι:",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "free_text": {
+            "user-input-mode": "required",
+            "datatype": "text",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "text",
+                  "component-params": {
+                    "format": "plaintext"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "next_step": "recipient"
+      },
+      "recipient": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Ποια είναι τα στοιχεία του αποδέκτη του εγγράφου σας",
+              "captionLeft": "Υπεύθυνη Δήλωση"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "recipient",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "recipient": {
+            "field-order": "recipient_help_text solemn_recipient",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "recipient_help_text": {
+            "user-input-mode": "display",
+            "datatype": "string",
+            "value": "Συμπληρώστε το όνομα του αποδέκτη προς τον οποίο θέλετε να γνωστοποιήσετε το έγγραφο για να ολοκληρώσετε τη διαδικασία.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_recipient": {
+            "user-input-mode": "required",
+            "datatype": "recipient",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προς",
+                  "component": "recipient"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "preview"
+      },
+      "preview": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Προεπισκόπηση Δήλωσης",
+              "captionLeft": "Υπεύθυνη Δήλωση"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "preamble recipient body personal_all footnotes",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "preamble": {
+            "field-order": "warning",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "recipient": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αποδέκτης<sup>(1)</sup>",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "solemn_recipient"
+          },
+          "body": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κείμενο Δήλωσης",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "introduction free_text"
+          },
+          "personal_all": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Δηλούντος",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "solemn_firstname solemn_surname solemn_father_fullname solemn_mother_fullname solemn_birth_date solemn_birth_place solemn_adt solemn_tel solemn_residence solemn_street solemn_street_number solemn_tk solemn_afm solemn_email"
+          },
+          "footnotes": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Υποσημειώσεις",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "footnote1 footnote2"
+          }
+        },
+        "fields": {
+          "warning": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Η ακρίβεια των στοιχείων που υποβάλλονται με αυτή τη δήλωση μπορεί να ελεγχθεί με βάση το αρχείο άλλων υπηρεσιών (άρθρο 8 παρ. 4 Ν. 1599/1986).",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_recipient": {
+            "user-input-mode": "noinput",
+            "datatype": "recipient",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προς",
+                  "component": "recipient"
+                }
+              }
+            }
+          },
+          "introduction": {
+            "user-input-mode": "display",
+            "datatype": "string",
+            "value": "Με ατομική μου ευθύνη και γνωρίζοντας τις κυρώσεις<sup>(2)</sup>, που προβλέπονται από τις διατάξεις της παρ. 6 του άρθρου 22 του Ν. 1599/1986, δηλώνω ότι:",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "free_text": {
+            "user-input-mode": "noinput",
+            "datatype": "text",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "text",
+                  "component-params": {
+                    "format": "plaintext"
+                  }
+                }
+              }
+            }
+          },
+          "solemn_firstname": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_surname": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_father_fullname": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_mother_fullname": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_birth_date": {
+            "user-input-mode": "noinput",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "date",
+                  "component-params": {
+                    "labels": {
+                      "day": "01",
+                      "month": "01",
+                      "year": "2000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "solemn_birth_place": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τόπος Γέννησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_adt": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Δελτίου Ταυτότητας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_tel": {
+            "user-input-mode": "noinput",
+            "datatype": "phone",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τηλέφωνο",
+                  "component": "phone"
+                }
+              }
+            }
+          },
+          "solemn_residence": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τόπος Κατοικίας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_street": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Οδός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_street_number": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_tk": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τ.Κ.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_afm": {
+            "user-input-mode": "noinput",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "ΑΦΜ",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "solemn_email": {
+            "user-input-mode": "noinput",
+            "datatype": "email",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Δ/νση Ηλεκτρ. Ταχυδρομείου (E-mail)",
+                  "component": "email"
+                }
+              }
+            }
+          },
+          "footnote1": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "(1) Αναγράφεται από τον ενδιαφερόμενο πολίτη η αρχή ή η υπηρεσία του δημόσιου τομέα όπου απευθύνεται η αίτηση.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "footnote2": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "(2) Γνωρίζω ότι: Όποιος εν γνώσει του δηλώνει ψευδή γεγονότα ή αρνείται ή αποκρύπτει τα αληθινά με έγγραφη υπεύθυνη δήλωση του άρθρου 8 τιμωρείται με φυλάκιση τουλάχιστον τριών μηνών. Εάν ο υπαίτιος αυτών των πράξεων σκόπευε να προσπορίσει στον εαυτόν του ή σε άλλον περιουσιακό όφελος βλάπτοντας τρίτον ή σκόπευε να βλάψει άλλον, τιμωρείται με κάθειρξη μέχρι 10 ετών.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "otp"
+      },
+      "otp": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Εισαγωγή κωδικού επιβεβαίωσης"
+            }
+          }
+        },
+        "validator": "dilosi.interop_logic.common.run_otp_response",
+        "action-order": "update resend_otp",
+        "fieldset-order": "hint otp",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Επιβεβαίωση",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "issue": true,
+              "ensure-no-input": false
+            }
+          },
+          "resend_otp": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-resend-otp",
+                  "label": "Δεν έλαβα κωδικό",
+                  "primary": false
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "hint": {
+            "field-order": "hint_text hint_text_filled",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            }
+          },
+          "otp": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Πολίτη",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            },
+            "field-order": "otp_challenge_id confirmation_code"
+          }
+        },
+        "fields": {
+          "hint_text": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Σας έχει σταλεί με SMS κωδικός επιβεβαίωσης στο κινητό με αριθμό %s.\nΠαρακαλούμε συμπληρώστε τον κωδικό στο πεδίο που ακολουθεί.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "hint_text_filled": {
+            "user-input-mode": "display",
+            "datatype": "string",
+            "sources": "displayfield:hint_text declaration:id",
+            "value-constructor": "dilosi.interop_logic.otp_challenge.fill_otp_hint_text",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "otp_challenge_id": {
+            "user-input-mode": "noinput",
+            "attribute": "otp_challenge:id",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "confirmation_code": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός Επιβεβαίωσης",
+                  "component": "string"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "final_view"
+      },
+      "final_view": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Προβολή",
+              "captionLeft": "Υπεύθυνη Δήλωση"
+            }
+          }
+        },
+        "action-order": "pdf",
+        "fieldset-order": "preamble recipient body personal_all footnotes pdf_header pdf_preamble pdf_recipient pdf_body pdf_personal_all pdf_footnotes",
+        "actions": {
+          "pdf": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-download-pdf",
+                  "label": "Αποθήκευση",
+                  "icon": "picture_as_pdf",
+                  "title": "Αποθηκεύστε στο αρχείο σας",
+                  "helptext": "Αποθηκεύστε το αρχείο PDF στη συσκευή σας.",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "filename": "govgr_document.pdf"
+            }
+          }
+        },
+        "fieldsets": {
+          "preamble": {
+            "field-order": "warning",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "recipient": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αποδέκτης<sup>(1)</sup>",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "solemn_recipient"
+          },
+          "body": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κείμενο Δήλωσης",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "introduction free_text"
+          },
+          "personal_all": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Δηλούντος",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "solemn_firstname solemn_surname solemn_father_fullname solemn_mother_fullname solemn_birth_date solemn_birth_place solemn_adt solemn_tel solemn_residence solemn_street solemn_street_number solemn_tk solemn_afm solemn_email"
+          },
+          "footnotes": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Υποσημειώσεις",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "footnote1 footnote2"
+          },
+          "pdf_header": {
+            "field-order": "emblem qrcode refcode",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "header"
+                }
+              }
+            }
+          },
+          "pdf_preamble": {
+            "field-order": "warning",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "values-list"
+                }
+              }
+            }
+          },
+          "pdf_recipient": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αποδέκτης<sup>(1)</sup>",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "values-list"
+                }
+              }
+            },
+            "field-order": "solemn_recipient"
+          },
+          "pdf_body": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κείμενο Δήλωσης",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "values-list"
+                }
+              }
+            },
+            "field-order": "introduction free_text"
+          },
+          "pdf_personal_all": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Δηλούντος",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "values-list"
+                }
+              }
+            },
+            "field-order": "solemn_firstname solemn_surname solemn_father_fullname solemn_mother_fullname solemn_birth_date solemn_birth_place solemn_adt solemn_tel solemn_residence solemn_street solemn_street_number solemn_tk solemn_afm solemn_email"
+          },
+          "pdf_footnotes": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Υποσημειώσεις",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "footnotes"
+                }
+              }
+            },
+            "field-order": "footnote1 footnote2"
+          }
+        },
+        "fields": {
+          "warning": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Η ακρίβεια των στοιχείων που υποβάλλονται με αυτή τη δήλωση μπορεί να ελεγχθεί με βάση το αρχείο άλλων υπηρεσιών (άρθρο 8 παρ. 4 Ν. 1599/1986).",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_recipient": {
+            "user-input-mode": "noinput",
+            "datatype": "recipient",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προς",
+                  "component": "recipient"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Προς",
+                  "component": "recipient"
+                }
+              }
+            }
+          },
+          "introduction": {
+            "user-input-mode": "display",
+            "datatype": "string",
+            "value": "Με ατομική μου ευθύνη και γνωρίζοντας τις κυρώσεις<sup>(2)</sup>, που προβλέπονται από τις διατάξεις της παρ. 6 του άρθρου 22 του Ν. 1599/1986, δηλώνω ότι:",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "free_text": {
+            "user-input-mode": "noinput",
+            "datatype": "text",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "text",
+                  "component-params": {
+                    "format": "plaintext"
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "text",
+                  "component-params": {
+                    "format": "plaintext"
+                  }
+                }
+              }
+            }
+          },
+          "solemn_firstname": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_surname": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_father_fullname": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_mother_fullname": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_birth_date": {
+            "user-input-mode": "noinput",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "date",
+                  "component-params": {
+                    "labels": {
+                      "day": "01",
+                      "month": "01",
+                      "year": "2000"
+                    }
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "date",
+                  "component-params": {
+                    "labels": {
+                      "day": "01",
+                      "month": "01",
+                      "year": "2000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "solemn_birth_place": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τόπος Γέννησης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Τόπος Γέννησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_adt": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Δελτίου Ταυτότητας",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αριθμός Δελτίου Ταυτότητας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_tel": {
+            "user-input-mode": "noinput",
+            "datatype": "phone",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τηλέφωνο",
+                  "component": "phone"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Τηλέφωνο",
+                  "component": "phone"
+                }
+              }
+            }
+          },
+          "solemn_residence": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τόπος Κατοικίας",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Τόπος Κατοικίας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_street": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Οδός",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Οδός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_street_number": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αριθμός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_tk": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τ.Κ.",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Τ.Κ.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "solemn_afm": {
+            "user-input-mode": "noinput",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "ΑΦΜ",
+                  "component": "afm"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "ΑΦΜ",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "solemn_email": {
+            "user-input-mode": "noinput",
+            "datatype": "email",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Δ/νση Ηλεκτρ. Ταχυδρομείου (E-mail)",
+                  "component": "email"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Δ/νση Ηλεκτρ. Ταχυδρομείου (E-mail)",
+                  "component": "email"
+                }
+              }
+            }
+          },
+          "footnote1": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "(1) Αναγράφεται από τον ενδιαφερόμενο πολίτη η αρχή ή η υπηρεσία του δημόσιου τομέα όπου απευθύνεται η αίτηση.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "footnote2": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "(2) Γνωρίζω ότι: Όποιος εν γνώσει του δηλώνει ψευδή γεγονότα ή αρνείται ή αποκρύπτει τα αληθινά με έγγραφη υπεύθυνη δήλωση του άρθρου 8 τιμωρείται με φυλάκιση τουλάχιστον τριών μηνών. Εάν ο υπαίτιος αυτών των πράξεων σκόπευε να προσπορίσει στον εαυτόν του ή σε άλλον περιουσιακό όφελος βλάπτοντας τρίτον ή σκόπευε να βλάψει άλλον, τιμωρείται με κάθειρξη μέχρι 10 ετών.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "emblem": {
+            "user-input-mode": "display",
+            "value": "hellenic_coat_of_arms_el_pdf",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "pdf-image",
+                  "component-params": {
+                    "coordinates": [
+                      7.5,
+                      26.4,
+                      6,
+                      2.581
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "qrcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code declaration:validation_context",
+            "value-constructor": "dilosi.interop_logic.common.create_document_uri",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "qrcode"
+                }
+              }
+            }
+          },
+          "refcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code",
+            "value-constructor": "dilosi.interop_logic.common.from_singleton_list",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "refcode",
+                  "component-params": {
+                    "later-pages": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "steps-order": "personal"
+  },
+  "owner": "System",
+  "shortname": "TEST",
+  "description": "TEST",
+  "requires_case": true,
+  "is_official": false,
+  "extra_required_claims": [],
+  "exempted_claims": [],
+  "case_prefixes": [],
+  "reply_templates": []
+}

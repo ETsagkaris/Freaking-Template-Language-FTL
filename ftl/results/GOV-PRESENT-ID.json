@@ -1,0 +1,1203 @@
+{
+  "refname": "GOV-PRESENT-ID",
+  "steps_spec": {
+    "steps": {
+      "civil_info": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία πολίτη",
+              "captionLeft": "Άντληση στοιχείων ταυτότητας από δημοσίους υπαλλήλους",
+              "serviceName": "Ψηφιακό αντίγραφο δελτίου ταυτότητας",
+              "serviceURL": "https://id-copy.services.gov.gr/"
+            }
+          }
+        },
+        "validator": "dilosi.applications.gov_present_id.claims.common.validate_citizen_info_input",
+        "action-order": "update",
+        "fieldset-order": "citizen_info citizen_application_info",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "citizen_info": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία πολίτη",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "citizen_firstname citizen_surname citizen_fathername citizen_birthyear citizen_document_number"
+          },
+          "citizen_application_info": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία αιτήματος πολίτη",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "mitos_id mitos_onoma_diadikasias citizen_case_id"
+          }
+        },
+        "fields": {
+          "citizen_firstname": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "hint": "Να συμπληρώνονται τα 3 πρώτα γράμματα του ονόματος",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "citizen_surname": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "hint": "Να συμπληρώνονται τα 3 πρώτα γράμματα του επωνύμου",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "citizen_fathername": {
+            "user-input-mode": "optional",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατέρα",
+                  "hint": "Να συμπληρώνονται τα 3 πρώτα γράμματα του πατρωνύμου. Εάν είναι \"ΑΝΕΥ ΠΑΤΡΟΣ\" αφήστε κενό το πεδίο ή συμπληρώστε με παύλα  \"-\".",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "citizen_birthyear": {
+            "user-input-mode": "required",
+            "datatype": "int",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Έτος γέννησης",
+                  "component": "int"
+                }
+              }
+            }
+          },
+          "citizen_document_number": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Δελτίου Ταυτότητας",
+                  "hint": "Να συμπληρώνεται ο ΑΔΤ με κεφαλαίους ελληνικούς χαρακτήρες και τα ψηφία, χωρίς κενά ή παύλες",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "mitos_id": {
+            "user-input-mode": "optional",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "6ψήφιος κωδικός διαδικασίας MITOΣ",
+                  "hint": "Να συμπληρώνεται ο εξαψήφιος κωδικός της διαδικασίας (του ΜΙΤΟΣ) για την οποία ζητείται το αντίγραφο ταυτότητας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "mitos_onoma_diadikasias": {
+            "user-input-mode": "optional",
+            "datatype": "text",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα διαδικασίας",
+                  "hint": "Εφόσον δεν βρεθεί διαδικασία στο ΜΙΤΟΣ παρακαλούμε να αναγράψετε το όνομα της διαδικασίας για την οποία ζητείται το αντίγραφο ταυτότητας.",
+                  "component": "text"
+                }
+              }
+            }
+          },
+          "citizen_case_id": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός αιτήματος πολίτη",
+                  "hint": "Καταγράψτε τον αριθμό πρωτοκόλλου και την ημερομηνία της αίτησης του πολίτη για την οποία απαιτείται η έκδοση του αντιγράφου ταυτότητας",
+                  "component": "string"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "id_card_info"
+      },
+      "id_card_info": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία ταυτότητας",
+              "captionLeft": "Άντληση στοιχείων ταυτότητας από δημοσίους υπαλλήλους",
+              "serviceName": "Ψηφιακό αντίγραφο δελτίου ταυτότητας",
+              "serviceURL": "https://id-copy.services.gov.gr/"
+            }
+          }
+        },
+        "field-compute-order": "original_id_photo id_title id_photo check_police_id_data",
+        "action-order": "update",
+        "fieldset-order": "id_details",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "id_details": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Αστυνομικής Ταυτότητας",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "original_id_photo id_photo idnumber name nameLatin surname surnameLatin fatherName fatherNameLatin motherName birthDate birthPlace issueInstitution_description issueDate check_police_id_data"
+          }
+        },
+        "fields": {
+          "original_id_photo": {
+            "user-input-mode": "noinput",
+            "attribute": "gov_present_id_photo:original_police_id_photo",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Συνημμένο έγγραφο",
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "id_photo": {
+            "user-input-mode": "noinput",
+            "attribute": "gov_wallet_crop_id_photo:cropped_police_id_photo",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Φωτογραφία Ταυτότητας",
+                  "component": "image"
+                }
+              }
+            }
+          },
+          "idnumber": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:document_no",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Ταυτότητας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "name": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "nameLatin": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:firstnameLatin",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα (λατινικοί)",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "surname": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:surname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "surnameLatin": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:surnameLatin",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο (λατινικοί)",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "fatherName": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:fathername",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατέρα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "fatherNameLatin": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:fathernameLatin",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατέρα (λατινικοί)",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "motherName": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:mothername",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητέρας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "birthDate": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:birthdate",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "birthPlace": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:birthplace",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τόπος Γέννησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "issueInstitution_description": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:origin_authority",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρχή Έκδοσης ΔΤ",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "issueDate": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:issuance_date",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Έκδοσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "check_police_id_data": {
+            "user-input-mode": "noinput",
+            "attribute": "check_police_id_data:status",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "final_view"
+      },
+      "final_view": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Τελική Προβολή",
+              "captionLeft": "Άντληση στοιχείων ταυτότητας από δημοσίους υπαλλήλους",
+              "serviceName": "Ψηφιακό αντίγραφο δελτίου ταυτότητας",
+              "serviceURL": "https://id-copy.services.gov.gr/",
+              "page-numbering": false
+            }
+          }
+        },
+        "is-final-view": true,
+        "action-order": "pdf",
+        "fieldset-order": "metadata more_info_2 id_details pdf_header pdf_doc_title pdf_metadata pdf_more_info_1 pdf_more_info_2 pdf_id_details pdf_before_signature_fs",
+        "actions": {
+          "pdf": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-download-pdf",
+                  "label": "Αποθήκευση",
+                  "icon": "picture_as_pdf",
+                  "title": "Αποθηκεύστε στο αρχείο σας",
+                  "helptext": "Αποθηκεύστε το αρχείο PDF στη συσκευή σας.",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "filename": "govgr_document.pdf"
+            }
+          }
+        },
+        "fieldsets": {
+          "metadata": {
+            "field-order": "refcode timestamp",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "more_info_2": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Διαδικασίας",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "onoma_diad case_number"
+          },
+          "id_details": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Αστυνομικής Ταυτότητας",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "original_id_photo id_photo idnumber name nameLatin surname surnameLatin fatherName fatherNameLatin motherName birthDate birthPlace issueInstitution_description issueDate check_police_id_data"
+          },
+          "pdf_header": {
+            "field-order": "emblem qrcode refcode",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "header"
+                }
+              }
+            }
+          },
+          "pdf_doc_title": {
+            "field-order": "title",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden",
+                  "component-params": {
+                    "spaceAfter": 30
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_metadata": {
+            "field-order": "refcode timestamp",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "values-list"
+                }
+              }
+            }
+          },
+          "pdf_more_info_1": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Εκδόθηκε από:",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            },
+            "field-order": "onoma_upallilou eponimo_upallilou foreas_upallilou"
+          },
+          "pdf_more_info_2": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Για την διαδικασία με στοιχεία:",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            },
+            "field-order": "onoma_diad case_number"
+          },
+          "pdf_id_details": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Αστυνομικής Ταυτότητας",
+                  "component": "hidden",
+                  "component-params": {
+                    "lines": "outer-round"
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "values-list"
+                }
+              }
+            },
+            "field-order": "original_id_photo id_photo idnumber name nameLatin surname surnameLatin fatherName fatherNameLatin motherName birthDate birthPlace issueInstitution_description issueDate check_police_id_data"
+          },
+          "pdf_before_signature_fs": {
+            "field-order": "before_signature",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "refcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code",
+            "value-constructor": "dilosi.interop_logic.common.from_singleton_list",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός Πράξης Ελέγχου",
+                  "component": "refcode",
+                  "component-params": {
+                    "later-pages": true
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Κωδικός Πράξης Ελέγχου",
+                  "component": "refcode",
+                  "component-params": {
+                    "later-pages": true
+                  }
+                }
+              }
+            }
+          },
+          "timestamp": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "sources": "declaration:timestamp",
+            "value-constructor": "dilosi.applications.gov_present_id.claims.common.construct_timestamp",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Χρονοσήμανση Πράξης Ελέγχου",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Χρονοσήμανση Πράξης Ελέγχου",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "onoma_diad": {
+            "user-input-mode": "noinput",
+            "attribute": "get_mitos_data:onoma_diadikasias",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα διαδικασίας",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα διαδικασίας",
+                  "value_md": 42,
+                  "title_md": 18,
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "case_number": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "sources": "field:citizen_case_id",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός αιτήματος πολίτη",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αριθμός αιτήματος πολίτη",
+                  "value_md": 42,
+                  "title_md": 18,
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "original_id_photo": {
+            "user-input-mode": "noinput",
+            "attribute": "gov_present_id_photo:original_police_id_photo",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Συνημμένο έγγραφο",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Συνημμένο έγγραφο",
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "id_photo": {
+            "user-input-mode": "noinput",
+            "attribute": "gov_wallet_crop_id_photo:cropped_police_id_photo",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Φωτογραφία Ταυτότητας",
+                  "component": "image"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Φωτογραφία Ταυτότητας",
+                  "component": "image"
+                }
+              }
+            }
+          },
+          "idnumber": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:document_no",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Ταυτότητας",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αριθμός Ταυτότητας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "name": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "nameLatin": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:firstnameLatin",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα (λατινικοί)",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα (λατινικοί)",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "surname": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:surname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "surnameLatin": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:surnameLatin",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο (λατινικοί)",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Επώνυμο (λατινικοί)",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "fatherName": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:fathername",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατέρα",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα Πατέρα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "fatherNameLatin": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:fathernameLatin",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατέρα (λατινικοί)",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα Πατέρα (λατινικοί)",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "motherName": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:mothername",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητέρας",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα Μητέρας",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "birthDate": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:birthdate",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "birthPlace": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:birthplace",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Τόπος Γέννησης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Τόπος Γέννησης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "issueInstitution_description": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:origin_authority",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρχή Έκδοσης ΔΤ",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αρχή Έκδοσης ΔΤ",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "issueDate": {
+            "user-input-mode": "noinput",
+            "attribute": "police_id:issuance_date",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Έκδοσης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Ημερομηνία Έκδοσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "check_police_id_data": {
+            "user-input-mode": "noinput",
+            "attribute": "check_police_id_data:status",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "emblem": {
+            "user-input-mode": "display",
+            "value": "hellenic_coat_of_arms_el_pdf",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "pdf-image",
+                  "component-params": {
+                    "coordinates": [
+                      7.5,
+                      26.4,
+                      6,
+                      2.581
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "qrcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code declaration:validation_context",
+            "value-constructor": "dilosi.interop_logic.common.create_document_uri",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "qrcode"
+                }
+              }
+            }
+          },
+          "title": {
+            "user-input-mode": "noinput",
+            "value": "Ψηφιακό αντίγραφο ταυτότητας",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "doc_title"
+                }
+              }
+            }
+          },
+          "onoma_upallilou": {
+            "user-input-mode": "noinput",
+            "attribute": "firstname",
+            "datatype": "string",
+            "display": {
+              "pdf": {
+                "el": {
+                  "title": "Όνομα",
+                  "value_md": 20,
+                  "title_md": 10,
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "eponimo_upallilou": {
+            "user-input-mode": "noinput",
+            "attribute": "surname",
+            "datatype": "string",
+            "display": {
+              "pdf": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "value_md": 20,
+                  "title_md": 10,
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "foreas_upallilou": {
+            "user-input-mode": "noinput",
+            "attribute": "primary_work_org_name",
+            "datatype": "string",
+            "display": {
+              "pdf": {
+                "el": {
+                  "title": "Φορέας",
+                  "value_md": 50,
+                  "title_md": 10,
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "before_signature": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Ψηφιακό αντίγραφο δελτίου ταυτότητας που έχει εκδοθεί αποκλειστικά για τις συναλλαγές φυσικών προσώπων με φορείς του δημόσιου τομέα, για τη διεκπεραίωση των οποίων υπάρχει υποχρέωση υποβολής φωτοαντιγράφου δελτίου ταυτότητας, Άρθρο 31 του ν. 5099/2024.Μπορείτε να ελέγξετε την ισχύ του αντιγράφου σκανάροντας το QR code ή εισάγοντας τον κωδικό στο docs.gov.gr/validate.",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "steps-order": "civil_info",
+    "intro-step": {
+      "display": {
+        "default": {
+          "el": {
+            "title": "Επισκόπηση των στοιχείων σας",
+            "captionLeft": "Άντληση στοιχείων ταυτότητας από δημοσίους υπαλλήλους",
+            "serviceName": "Ψηφιακό αντίγραφο δελτίου ταυτότητας",
+            "serviceURL": "https://id-copy.services.gov.gr/"
+          }
+        }
+      },
+      "action-order": "create",
+      "fieldset-order": "citizen_info",
+      "actions": {
+        "create": {
+          "display": {
+            "default": {
+              "el": {
+                "component": "document-create",
+                "label": "Συνέχεια",
+                "primary": true
+              }
+            }
+          }
+        }
+      },
+      "fieldsets": {
+        "citizen_info": {
+          "display": {
+            "default": {
+              "el": {
+                "title": "Επιβεβαιώστε ότι τα παρακάτω στοιχεία, με τα οποία έχετε συνδεθεί, είναι σωστά.",
+                "component": "values-list"
+              }
+            },
+            "pdf": {
+              "el": {
+                "component": "hidden"
+              }
+            }
+          },
+          "field-order": "civil_servant_firstname civil_servant_surname civil_servant_afm civil_servant_work_org_name"
+        }
+      },
+      "fields": {
+        "civil_servant_firstname": {
+          "user-input-mode": "noinput",
+          "datatype": "string",
+          "sources": "session:firstname",
+          "display": {
+            "default": {
+              "el": {
+                "title": "Όνομα",
+                "component": "string"
+              }
+            }
+          }
+        },
+        "civil_servant_surname": {
+          "user-input-mode": "noinput",
+          "datatype": "string",
+          "sources": "session:surname",
+          "display": {
+            "default": {
+              "el": {
+                "title": "Επώνυμο",
+                "component": "string"
+              }
+            }
+          }
+        },
+        "civil_servant_afm": {
+          "user-input-mode": "noinput",
+          "datatype": "afm",
+          "sources": "session:afm",
+          "display": {
+            "default": {
+              "el": {
+                "title": "Α.Φ.Μ.",
+                "component": "afm"
+              }
+            }
+          }
+        },
+        "civil_servant_work_org_name": {
+          "user-input-mode": "noinput",
+          "datatype": "string",
+          "sources": "session:primary_work_org_name",
+          "display": {
+            "default": {
+              "el": {
+                "title": "Φορέας Υπαλλήλου",
+                "component": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "owner": "System",
+  "shortname": "Άντληση στοιχείων ταυτότητας από δημοσίους υπαλλήλους",
+  "description": "Άντληση στοιχείων ταυτότητας από δημοσίους υπαλλήλους",
+  "requires_case": true,
+  "is_official": true,
+  "extra_required_claims": [
+    "is_admin"
+  ],
+  "exempted_claims": [
+    "mobile_certified_login",
+    "is_citizen_user"
+  ],
+  "case_prefixes": [],
+  "reply_templates": []
+}

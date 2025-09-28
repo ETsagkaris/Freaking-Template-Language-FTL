@@ -1,0 +1,1701 @@
+{
+  "refname": "PIST-POLYTEK-AIT-DEMO",
+  "steps_spec": {
+    "steps": {
+      "id_verification": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία Αιτούντος",
+              "captionLeft": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+              "serviceName": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "id_verification_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "id_verification_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προσωπικά Στοιχεία",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "firstname surname fathername mothername afm birth_date"
+          }
+        },
+        "fields": {
+          "firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "surname": {
+            "user-input-mode": "noinput",
+            "attribute": "surname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "fathername": {
+            "user-input-mode": "noinput",
+            "attribute": "father_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "mothername": {
+            "user-input-mode": "noinput",
+            "attribute": "mother_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "afm": {
+            "user-input-mode": "noinput",
+            "attribute": "afm",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Α.Φ.Μ.",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "birth_date": {
+            "user-input-mode": "noinput",
+            "attribute": "birth_date",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "three-block-date"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "polyteknia_info"
+      },
+      "polyteknia_info": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία πολυτεκνικής ιδιότητας",
+              "captionLeft": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+              "serviceName": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας"
+            }
+          }
+        },
+        "validator": "dilosi.applications.pistopoiitiko_polyteknias.claims.common.validate_polyteknia_info_step",
+        "action-order": "update",
+        "fieldset-order": "polytek_info_fs pist_polyt_photo_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "polytek_info_fs": {
+            "field-order": "aspe_am syllogos_choice expiration_date",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "pist_polyt_photo_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Φωτογραφία πολυτεκνικής ταυτότητας",
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "photo_notes polit_id_photo_1 polit_id_photo_2"
+          }
+        },
+        "fields": {
+          "aspe_am": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Μητρώου Α.Σ.Π.Ε.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "syllogos_choice": {
+            "user-input-mode": "required",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Σύλλογος Πολυτέκνων - Μέλος της ΑΣΠΕ",
+                  "component": "hierarchical-selector",
+                  "component-params": {
+                    "dataset": "/api/datasets/aspe_members"
+                  }
+                }
+              }
+            }
+          },
+          "expiration_date": {
+            "user-input-mode": "required",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Λήξη τελευταίας θεώρησης ταυτότητας (βιβλιαρίου)",
+                  "component": "three-block-date"
+                }
+              }
+            }
+          },
+          "photo_notes": {
+            "user-input-mode": "display",
+            "datatype": "string",
+            "value": "\\nΕπισυνάπτονται φωτογραφίες και των 2 όψεων της πολυτεκνικής ταυτότητας (βιβλιαρίου), \\nαυτής με την τελευταία θεώρηση και αυτής με τη φωτογραφία. Και \\nοι 2 όψεις είναι υποχρεωτικές. Τα τέκνα που δεν έχουν ταυτότητα επισυνάπτουν \\nφωτογραφία των 2 όψεων της πολυτεκνικής ταυτότητας ενός από τους γονείς τους. \\nΜέγιστο μέγεθος κάθε αρχείου 5ΜΒ.\\n",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "polit_id_photo_1": {
+            "user-input-mode": "optional",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρχείο 1ης όψης",
+                  "component": "attachment"
+                }
+              }
+            }
+          },
+          "polit_id_photo_2": {
+            "user-input-mode": "optional",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρχείο 2ης όψης",
+                  "component": "attachment"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "family_info"
+      },
+      "family_info": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία οικογενειακής κατάστασης",
+              "captionLeft": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+              "serviceName": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας"
+            }
+          }
+        },
+        "validator": "dilosi.applications.pistopoiitiko_polyteknias.claims.common.check_family_info_fs_fields",
+        "action-order": "update",
+        "fieldset-order": "family_info_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "family_info_fs": {
+            "field-order": "idiotita pok_note_1 pok_refcode pok_file pok_note_2 pist_use other_use comments",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "idiotita": {
+            "user-input-mode": "required",
+            "datatype": "radio-choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ιδιότητα",
+                  "component": "radio-choice",
+                  "choices": {
+                    "parent": "Γονέας",
+                    "child": "Τέκνο"
+                  },
+                  "choices-order": "parent child"
+                }
+              }
+            }
+          },
+          "pok_note_1": {
+            "user-input-mode": "display",
+            "value": "Υποβάλετε πρόσφατο (να έχει εκδοθεί εντός των τελευταίων 30 ημερών πριν από την ημερομηνία της παρούσας αίτησής σας) πιστοποιητικό οικογενειακής κατάστασης με έναν από τους δύο τρόπους παρακάτω.Αν είστε τέκνο πολυτεκνικής οικογένειας, υποβάλετε το πιστοποιητικό οικογενειακής κατάστασης της πατρικής οικογένειας.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "quote",
+                  "component-params": {
+                    "mode": "info"
+                  }
+                }
+              }
+            }
+          },
+          "pok_refcode": {
+            "user-input-mode": "optional",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός εγγράφου Πιστοποιητικού Οικογενειακής Κατάστασης",
+                  "hint": "Συμπληρώστε τον κωδικό εγγράφου του Πιστοποιητικού Οικογενειακής Κατάστασης στο παρακάτω πεδίο.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "pok_file": {
+            "user-input-mode": "optional",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Πιστοποιητικό οικογενειακής κατάστασης",
+                  "hint": "Εναλλακτικά, επισυνάψτε το Πιστοποιητικό Οικογενειακής Κατάστασης. Τα τέκνα επισυνάπτουν το Πιστοποιητικό Οικογενειακής Κατάστασης της πατρικής οικογένειας.",
+                  "component": "attachment",
+                  "component-params": {
+                    "filetype": "pdf"
+                  }
+                }
+              }
+            }
+          },
+          "pok_note_2": {
+            "user-input-mode": "display",
+            "value": "Σε περίπτωση που δεν έχετε εκδώσει το σχετικό πιστοποιητικό, παρακαλούμε μεταβείτε στην Ψηφιακή Υπηρεσία Έκδοσης η οποία βρίσκεται <a href='https://www.gov.gr/ipiresies/oikogeneia/oikogeneiake-katastase/pistopoietiko-oikogeneiakes-katastases' target='_blank'>εδώ</a>.",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "quote",
+                  "component-params": {
+                    "mode": "info"
+                  }
+                }
+              }
+            }
+          },
+          "pist_use": {
+            "user-input-mode": "required",
+            "datatype": "choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Το πιστοποιητικό προορίζεται για χρήση:",
+                  "component": "choice",
+                  "choices": {
+                    "ΓιατοΑΣΕΠ": "Για το ΑΣΕΠ",
+                    "ΓιαΠρόσληψη": "Για Πρόσληψη",
+                    "ΓιαΔιαγωνισμό": "Για Διαγωνισμό",
+                    "ΓιαΜετεγγραφήσεάλληΣχολή": "Για Μετεγγραφή σε άλλη Σχολή",
+                    "ΓιαΣτρατιωτικέςΣχολέςκαιΣχολέςΣωμάτων": "Για Στρατιωτικές Σχολές και Σχολές Σωμάτων",
+                    "ΓιατηΣτρατιωτικήθητεία": "Για τη Στρατιωτική θητεία",
+                    "ΓιαΛοιπά": "Για Λοιπά"
+                  },
+                  "choices-order": "ΓιατοΑΣΕΠ ΓιαΠρόσληψη ΓιαΔιαγωνισμό ΓιαΜετεγγραφήσεάλληΣχολή ΓιαΣτρατιωτικέςΣχολέςκαιΣχολέςΣωμάτων ΓιατηΣτρατιωτικήθητεία ΓιαΛοιπά"
+                }
+              }
+            }
+          },
+          "other_use": {
+            "user-input-mode": "optional",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Λοιπά",
+                  "hint": "Συμπληρώστε τη χρήση για την οποία προορίζεται το πιστοποιητικό αν επιλέξατε \"Για Λοιπά\"",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "comments": {
+            "user-input-mode": "optional",
+            "datatype": "text",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Παρατηρήσεις",
+                  "component": "text"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "contact_info"
+      },
+      "contact_info": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Στοιχεία Επικοινωνίας",
+              "captionLeft": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+              "serviceName": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "contact_info_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Συνέχεια",
+                  "primary": true
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": {
+          "contact_info_fs": {
+            "field-order": "email mobile",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "form"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "email": {
+            "user-input-mode": "required",
+            "datatype": "email",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Διεύθυνση Ηλεκτρονικού Ταχυδρομείου",
+                  "component": "email"
+                }
+              }
+            }
+          },
+          "mobile": {
+            "user-input-mode": "required",
+            "datatype": "mobile_phone",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κινητό Τηλέφωνο",
+                  "component": "mobile_phone"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "preview"
+      },
+      "preview": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Προεπισκόπηση",
+              "captionLeft": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+              "serviceName": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας"
+            }
+          }
+        },
+        "action-order": "update",
+        "fieldset-order": "id_verification_fs polytek_info_fs family_info_fs contact_info_fs",
+        "actions": {
+          "update": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-update",
+                  "label": "Έκδοση",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "issue": true,
+              "ensure-no-input": true
+            }
+          }
+        },
+        "fieldsets": {
+          "id_verification_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προσωπικά Στοιχεία",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "firstname surname fathername mothername afm birth_date"
+          },
+          "polytek_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Πολυτεκνικής Ιδιότητας",
+                  "component": "values-list",
+                  "component-params": {
+                    "omit_empty_values": true
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "aspe_am syllogos_choice expiration_date polit_id_photo_1 polit_id_photo_2"
+          },
+          "family_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Οικογενειακής Κατάστασης",
+                  "component": "values-list",
+                  "component-params": {
+                    "omit_empty_values": true
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "idiotita pok_file pok_refcode pok_validation_url pist_use other_use comments"
+          },
+          "contact_info_fs": {
+            "field-order": "email mobile",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "firstname": {
+            "user-input-mode": "noinput",
+            "attribute": "firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "surname": {
+            "user-input-mode": "noinput",
+            "attribute": "surname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "fathername": {
+            "user-input-mode": "noinput",
+            "attribute": "father_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "mothername": {
+            "user-input-mode": "noinput",
+            "attribute": "mother_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "afm": {
+            "user-input-mode": "noinput",
+            "attribute": "afm",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Α.Φ.Μ.",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "birth_date": {
+            "user-input-mode": "noinput",
+            "attribute": "birth_date",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "three-block-date"
+                }
+              }
+            }
+          },
+          "aspe_am": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Μητρώου Α.Σ.Π.Ε.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "syllogos_choice": {
+            "user-input-mode": "noinput",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Σύλλογος Πολυτέκνων - Μέλος της ΑΣΠΕ",
+                  "component": "hierarchical-selector",
+                  "component-params": {
+                    "dataset": "/api/datasets/aspe_members"
+                  }
+                }
+              }
+            }
+          },
+          "expiration_date": {
+            "user-input-mode": "noinput",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Λήξη τελευταίας θεώρησης ταυτότητας (βιβλιαρίου)",
+                  "component": "three-block-date"
+                }
+              }
+            }
+          },
+          "polit_id_photo_1": {
+            "user-input-mode": "noinput",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρχείο 1ης όψης",
+                  "component": "attachment"
+                }
+              }
+            }
+          },
+          "polit_id_photo_2": {
+            "user-input-mode": "noinput",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρχείο 2ης όψης",
+                  "component": "attachment"
+                }
+              }
+            }
+          },
+          "idiotita": {
+            "user-input-mode": "noinput",
+            "datatype": "radio-choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ιδιότητα",
+                  "component": "radio-choice",
+                  "choices": {
+                    "parent": "Γονέας",
+                    "child": "Τέκνο"
+                  },
+                  "choices-order": "parent child"
+                }
+              }
+            }
+          },
+          "pok_file": {
+            "user-input-mode": "noinput",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Πιστοποιητικό οικογενειακής κατάστασης",
+                  "hint": "Εναλλακτικά, επισυνάψτε το Πιστοποιητικό Οικογενειακής Κατάστασης. Τα τέκνα επισυνάπτουν το Πιστοποιητικό Οικογενειακής Κατάστασης της πατρικής οικογένειας.",
+                  "component": "attachment",
+                  "component-params": {
+                    "filetype": "pdf"
+                  }
+                }
+              }
+            }
+          },
+          "pok_refcode": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός εγγράφου Πιστοποιητικού Οικογενειακής Κατάστασης",
+                  "hint": "Συμπληρώστε τον κωδικό εγγράφου του Πιστοποιητικού Οικογενειακής Κατάστασης στο παρακάτω πεδίο.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "pok_validation_url": {
+            "user-input-mode": "display",
+            "datatype": "string",
+            "safe": true,
+            "sources": "field:pok_refcode",
+            "value-constructor": "dilosi.applications.pistopoiitiko_polyteknias.claims.common.construct_pok_validation_url",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Σύνδεσμος Πιστοποιητικού Οικογενειακής Κατάστασης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "pist_use": {
+            "user-input-mode": "noinput",
+            "datatype": "choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Το πιστοποιητικό προορίζεται για χρήση:",
+                  "component": "choice",
+                  "choices": {
+                    "ΓιατοΑΣΕΠ": "Για το ΑΣΕΠ",
+                    "ΓιαΠρόσληψη": "Για Πρόσληψη",
+                    "ΓιαΔιαγωνισμό": "Για Διαγωνισμό",
+                    "ΓιαΜετεγγραφήσεάλληΣχολή": "Για Μετεγγραφή σε άλλη Σχολή",
+                    "ΓιαΣτρατιωτικέςΣχολέςκαιΣχολέςΣωμάτων": "Για Στρατιωτικές Σχολές και Σχολές Σωμάτων",
+                    "ΓιατηΣτρατιωτικήθητεία": "Για τη Στρατιωτική θητεία",
+                    "ΓιαΛοιπά": "Για Λοιπά"
+                  },
+                  "choices-order": "ΓιατοΑΣΕΠ ΓιαΠρόσληψη ΓιαΔιαγωνισμό ΓιαΜετεγγραφήσεάλληΣχολή ΓιαΣτρατιωτικέςΣχολέςκαιΣχολέςΣωμάτων ΓιατηΣτρατιωτικήθητεία ΓιαΛοιπά"
+                }
+              }
+            }
+          },
+          "other_use": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Λοιπά",
+                  "hint": "Συμπληρώστε τη χρήση για την οποία προορίζεται το πιστοποιητικό αν επιλέξατε \"Για Λοιπά\"",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "comments": {
+            "user-input-mode": "noinput",
+            "datatype": "text",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Παρατηρήσεις",
+                  "component": "text"
+                }
+              }
+            }
+          },
+          "email": {
+            "user-input-mode": "noinput",
+            "datatype": "email",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Διεύθυνση Ηλεκτρονικού Ταχυδρομείου",
+                  "component": "email"
+                }
+              }
+            }
+          },
+          "mobile": {
+            "user-input-mode": "noinput",
+            "datatype": "mobile_phone",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κινητό Τηλέφωνο",
+                  "component": "mobile_phone"
+                }
+              }
+            }
+          }
+        },
+        "next_step": "final_view"
+      },
+      "final_view": {
+        "display": {
+          "default": {
+            "el": {
+              "title": "Τελική Προβολή",
+              "captionLeft": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+              "serviceName": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας"
+            }
+          }
+        },
+        "is-final-view": true,
+        "action-order": "pdf",
+        "fieldset-order": "case_id_fs id_verification_fs polytek_info_fs family_info_fs contact_info_fs pdf_header pdf_doc_title pdf_case_id_fs pdf_id_verification_fs pdf_polytek_info_fs pdf_family_info_fs pdf_contact_info_fs pdf_signature",
+        "actions": {
+          "pdf": {
+            "display": {
+              "default": {
+                "el": {
+                  "component": "document-download-pdf",
+                  "label": "Αποθήκευση",
+                  "icon": "picture_as_pdf",
+                  "title": "Αποθηκεύστε στο αρχείο σας",
+                  "helptext": "Αποθηκεύστε το αρχείο PDF στη συσκευή σας.",
+                  "primary": true
+                }
+              }
+            },
+            "component-params": {
+              "filename": "govgr_document.pdf"
+            }
+          }
+        },
+        "fieldsets": {
+          "case_id_fs": {
+            "field-order": "case_id",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "id_verification_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προσωπικά Στοιχεία",
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "firstname surname fathername mothername afm birth_date"
+          },
+          "polytek_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Πολυτεκνικής Ιδιότητας",
+                  "component": "values-list",
+                  "component-params": {
+                    "omit_empty_values": true
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "aspe_am syllogos_choice expiration_date polit_id_photo_1 polit_id_photo_2"
+          },
+          "family_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Οικογενειακής Κατάστασης",
+                  "component": "values-list",
+                  "component-params": {
+                    "omit_empty_values": true
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            },
+            "field-order": "idiotita pok_file pok_refcode pok_validation_url pist_use other_use comments"
+          },
+          "contact_info_fs": {
+            "field-order": "email mobile",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "values-list"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "hidden"
+                }
+              }
+            }
+          },
+          "pdf_header": {
+            "field-order": "emblem qrcode refcode",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "header"
+                }
+              }
+            }
+          },
+          "pdf_doc_title": {
+            "field-order": "title",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden",
+                  "component-params": {
+                    "spaceAfter": 30
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_case_id_fs": {
+            "field-order": "case_id",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "one-liner-table"
+                }
+              }
+            }
+          },
+          "pdf_id_verification_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Προσωπικά Στοιχεία",
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            },
+            "field-order": "firstname surname fathername mothername afm birth_date"
+          },
+          "pdf_polytek_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Πολυτεκνικής Ιδιότητας",
+                  "component": "hidden",
+                  "component-params": {
+                    "omit_empty_values": true
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            },
+            "field-order": "aspe_am syllogos_choice expiration_date polit_id_photo_1 polit_id_photo_2"
+          },
+          "pdf_family_info_fs": {
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Στοιχεία Οικογενειακής Κατάστασης",
+                  "component": "hidden",
+                  "component-params": {
+                    "omit_empty_values": true
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            },
+            "field-order": "idiotita pok_file pok_refcode pok_validation_url pist_use other_use comments"
+          },
+          "pdf_contact_info_fs": {
+            "field-order": "email mobile",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "table"
+                }
+              }
+            }
+          },
+          "pdf_signature": {
+            "field-order": "sign_date signer_title signer_empty signer_name",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "hidden",
+                  "component-params": {
+                    "spaceBefore": 20
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "component": "signature"
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "case_id": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "sources": "declaration:case",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρ. Υπόθεσης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αρ. Υπόθεσης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "firstname": {
+            "user-input-mode": "required",
+            "attribute": "firstname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "surname": {
+            "user-input-mode": "required",
+            "attribute": "surname",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Επώνυμο",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "fathername": {
+            "user-input-mode": "required",
+            "attribute": "father_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα Πατρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "mothername": {
+            "user-input-mode": "required",
+            "attribute": "mother_name",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Όνομα Μητρός",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "afm": {
+            "user-input-mode": "required",
+            "attribute": "afm",
+            "datatype": "afm",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Α.Φ.Μ.",
+                  "component": "afm"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Α.Φ.Μ.",
+                  "component": "afm"
+                }
+              }
+            }
+          },
+          "birth_date": {
+            "user-input-mode": "required",
+            "attribute": "birth_date",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "three-block-date"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Ημερομηνία Γέννησης",
+                  "component": "three-block-date"
+                }
+              }
+            }
+          },
+          "aspe_am": {
+            "user-input-mode": "required",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αριθμός Μητρώου Α.Σ.Π.Ε.",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αριθμός Μητρώου Α.Σ.Π.Ε.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "syllogos_choice": {
+            "user-input-mode": "required",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Σύλλογος Πολυτέκνων - Μέλος της ΑΣΠΕ",
+                  "component": "hierarchical-selector",
+                  "component-params": {
+                    "dataset": "/api/datasets/aspe_members"
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Σύλλογος Πολυτέκνων - Μέλος της ΑΣΠΕ",
+                  "component": "hierarchical-selector",
+                  "component-params": {
+                    "dataset": "/api/datasets/aspe_members"
+                  }
+                }
+              }
+            }
+          },
+          "expiration_date": {
+            "user-input-mode": "required",
+            "datatype": "date",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Λήξη τελευταίας θεώρησης ταυτότητας (βιβλιαρίου)",
+                  "component": "three-block-date"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Λήξη τελευταίας θεώρησης ταυτότητας (βιβλιαρίου)",
+                  "component": "three-block-date"
+                }
+              }
+            }
+          },
+          "polit_id_photo_1": {
+            "user-input-mode": "optional",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρχείο 1ης όψης",
+                  "component": "attachment"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αρχείο 1ης όψης",
+                  "component": "attachment"
+                }
+              }
+            }
+          },
+          "polit_id_photo_2": {
+            "user-input-mode": "optional",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Αρχείο 2ης όψης",
+                  "component": "attachment"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Αρχείο 2ης όψης",
+                  "component": "attachment"
+                }
+              }
+            }
+          },
+          "idiotita": {
+            "user-input-mode": "required",
+            "datatype": "radio-choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Ιδιότητα",
+                  "component": "radio-choice",
+                  "choices": {
+                    "parent": "Γονέας",
+                    "child": "Τέκνο"
+                  },
+                  "choices-order": "parent child"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Ιδιότητα",
+                  "component": "radio-choice",
+                  "choices": {
+                    "parent": "Γονέας",
+                    "child": "Τέκνο"
+                  },
+                  "choices-order": "parent child"
+                }
+              }
+            }
+          },
+          "pok_file": {
+            "user-input-mode": "optional",
+            "datatype": "attachment",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Πιστοποιητικό οικογενειακής κατάστασης",
+                  "hint": "Εναλλακτικά, επισυνάψτε το Πιστοποιητικό Οικογενειακής Κατάστασης. Τα τέκνα επισυνάπτουν το Πιστοποιητικό Οικογενειακής Κατάστασης της πατρικής οικογένειας.",
+                  "component": "attachment",
+                  "component-params": {
+                    "filetype": "pdf"
+                  }
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Πιστοποιητικό οικογενειακής κατάστασης",
+                  "hint": "Εναλλακτικά, επισυνάψτε το Πιστοποιητικό Οικογενειακής Κατάστασης. Τα τέκνα επισυνάπτουν το Πιστοποιητικό Οικογενειακής Κατάστασης της πατρικής οικογένειας.",
+                  "component": "attachment",
+                  "component-params": {
+                    "filetype": "pdf"
+                  }
+                }
+              }
+            }
+          },
+          "pok_refcode": {
+            "user-input-mode": "optional",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κωδικός εγγράφου Πιστοποιητικού Οικογενειακής Κατάστασης",
+                  "hint": "Συμπληρώστε τον κωδικό εγγράφου του Πιστοποιητικού Οικογενειακής Κατάστασης στο παρακάτω πεδίο.",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Κωδικός εγγράφου Πιστοποιητικού Οικογενειακής Κατάστασης",
+                  "hint": "Συμπληρώστε τον κωδικό εγγράφου του Πιστοποιητικού Οικογενειακής Κατάστασης στο παρακάτω πεδίο.",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "pok_validation_url": {
+            "user-input-mode": "display",
+            "datatype": "string",
+            "safe": true,
+            "sources": "field:pok_refcode",
+            "value-constructor": "dilosi.applications.pistopoiitiko_polyteknias.claims.common.construct_pok_validation_url",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Σύνδεσμος Πιστοποιητικού Οικογενειακής Κατάστασης",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Σύνδεσμος Πιστοποιητικού Οικογενειακής Κατάστασης",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "pist_use": {
+            "user-input-mode": "required",
+            "datatype": "choice",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Το πιστοποιητικό προορίζεται για χρήση:",
+                  "component": "choice",
+                  "choices": {
+                    "ΓιατοΑΣΕΠ": "Για το ΑΣΕΠ",
+                    "ΓιαΠρόσληψη": "Για Πρόσληψη",
+                    "ΓιαΔιαγωνισμό": "Για Διαγωνισμό",
+                    "ΓιαΜετεγγραφήσεάλληΣχολή": "Για Μετεγγραφή σε άλλη Σχολή",
+                    "ΓιαΣτρατιωτικέςΣχολέςκαιΣχολέςΣωμάτων": "Για Στρατιωτικές Σχολές και Σχολές Σωμάτων",
+                    "ΓιατηΣτρατιωτικήθητεία": "Για τη Στρατιωτική θητεία",
+                    "ΓιαΛοιπά": "Για Λοιπά"
+                  },
+                  "choices-order": "ΓιατοΑΣΕΠ ΓιαΠρόσληψη ΓιαΔιαγωνισμό ΓιαΜετεγγραφήσεάλληΣχολή ΓιαΣτρατιωτικέςΣχολέςκαιΣχολέςΣωμάτων ΓιατηΣτρατιωτικήθητεία ΓιαΛοιπά"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Το πιστοποιητικό προορίζεται για χρήση:",
+                  "component": "choice",
+                  "choices": {
+                    "ΓιατοΑΣΕΠ": "Για το ΑΣΕΠ",
+                    "ΓιαΠρόσληψη": "Για Πρόσληψη",
+                    "ΓιαΔιαγωνισμό": "Για Διαγωνισμό",
+                    "ΓιαΜετεγγραφήσεάλληΣχολή": "Για Μετεγγραφή σε άλλη Σχολή",
+                    "ΓιαΣτρατιωτικέςΣχολέςκαιΣχολέςΣωμάτων": "Για Στρατιωτικές Σχολές και Σχολές Σωμάτων",
+                    "ΓιατηΣτρατιωτικήθητεία": "Για τη Στρατιωτική θητεία",
+                    "ΓιαΛοιπά": "Για Λοιπά"
+                  },
+                  "choices-order": "ΓιατοΑΣΕΠ ΓιαΠρόσληψη ΓιαΔιαγωνισμό ΓιαΜετεγγραφήσεάλληΣχολή ΓιαΣτρατιωτικέςΣχολέςκαιΣχολέςΣωμάτων ΓιατηΣτρατιωτικήθητεία ΓιαΛοιπά"
+                }
+              }
+            }
+          },
+          "other_use": {
+            "user-input-mode": "optional",
+            "datatype": "string",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Λοιπά",
+                  "hint": "Συμπληρώστε τη χρήση για την οποία προορίζεται το πιστοποιητικό αν επιλέξατε \"Για Λοιπά\"",
+                  "component": "string"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Λοιπά",
+                  "hint": "Συμπληρώστε τη χρήση για την οποία προορίζεται το πιστοποιητικό αν επιλέξατε \"Για Λοιπά\"",
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "comments": {
+            "user-input-mode": "optional",
+            "datatype": "text",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Παρατηρήσεις",
+                  "component": "text"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Παρατηρήσεις",
+                  "component": "text"
+                }
+              }
+            }
+          },
+          "email": {
+            "user-input-mode": "required",
+            "datatype": "email",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Διεύθυνση Ηλεκτρονικού Ταχυδρομείου",
+                  "component": "email"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Διεύθυνση Ηλεκτρονικού Ταχυδρομείου",
+                  "component": "email"
+                }
+              }
+            }
+          },
+          "mobile": {
+            "user-input-mode": "required",
+            "datatype": "mobile_phone",
+            "display": {
+              "default": {
+                "el": {
+                  "title": "Κινητό Τηλέφωνο",
+                  "component": "mobile_phone"
+                }
+              },
+              "pdf": {
+                "el": {
+                  "title": "Κινητό Τηλέφωνο",
+                  "component": "mobile_phone"
+                }
+              }
+            }
+          },
+          "emblem": {
+            "user-input-mode": "display",
+            "value": "hellenic_coat_of_arms_el_pdf",
+            "display": {
+              "default": {
+                "el": {
+                  "component": "pdf-image",
+                  "component-params": {
+                    "coordinates": [
+                      7.5,
+                      26.4,
+                      6,
+                      2.581
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "qrcode": {
+            "user-input-mode": "noinput",
+            "sources": "declaration:reference_code declaration:validation_context",
+            "value-constructor": "dilosi.interop_logic.common.create_document_uri",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "qrcode"
+                }
+              }
+            }
+          },
+          "refcode": {
+            "user-input-mode": "required",
+            "sources": "declaration:reference_code",
+            "value-constructor": "dilosi.interop_logic.common.from_singleton_list",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "refcode",
+                  "component-params": {
+                    "later-pages": true
+                  }
+                }
+              }
+            }
+          },
+          "title": {
+            "user-input-mode": "noinput",
+            "value": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+            "display": {
+              "pdf": {
+                "el": {
+                  "component": "doc_title"
+                }
+              }
+            }
+          },
+          "sign_date": {
+            "user-input-mode": "noinput",
+            "datatype": "date",
+            "sources": "declaration:timestamp",
+            "value-constructor": "dilosi.interop_logic.common.get_local_date",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "date"
+                }
+              }
+            }
+          },
+          "signer_title": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "Ο - Η Αιτ.",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "signer_empty": {
+            "user-input-mode": "noinput",
+            "datatype": "string",
+            "value": "",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "string"
+                }
+              }
+            }
+          },
+          "signer_name": {
+            "user-input-mode": "noinput",
+            "value": "{firstname} {surname}",
+            "is-display-field": true,
+            "display": {
+              "default": {
+                "el": {
+                  "component": "dynamically-filled-text",
+                  "component-params": {
+                    "emph": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "steps-order": "id_verification"
+  },
+  "owner": "ASPE",
+  "shortname": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+  "description": "Αίτηση Έκδοσης Πιστοποιητικού Πολυτεκνικής Ιδιότητας",
+  "requires_case": true,
+  "is_official": true,
+  "extra_required_claims": [],
+  "exempted_claims": [
+    "mobile_certified_login",
+    "is_citizen_user"
+  ],
+  "case_prefixes": [],
+  "reply_templates": []
+}

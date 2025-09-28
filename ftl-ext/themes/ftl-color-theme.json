@@ -1,0 +1,37 @@
+{
+  "name": "FTL Dark Theme",
+  "type": "dark",
+  "colors": {},
+  "tokenColors": [
+    {
+      "scope": "blue.ftl",
+      "settings": {
+        "foreground": "#4da6ff",
+      }
+    },
+    {
+      "scope": "yellow.ftl",
+      "settings": {
+        "foreground": "#ffd700"
+      }
+    },
+    {
+      "scope": "purple.ftl",
+      "settings": {
+        "foreground": "#c586c0"
+      }
+    },
+    {
+      "scope": "green.ftl",
+      "settings": {
+        "foreground": "#98c379"  // 💚 green
+      }
+    },
+    {
+      "scope": "orange.ftl",
+      "settings": {
+        "foreground": "#ff8800"
+      }
+    }
+  ]
+}
